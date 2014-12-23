@@ -33,7 +33,7 @@ class AuthController extends \BaseController {
 		        }
 	  
 		        return Redirect::back()->withErrors([
-		          "password" => ["Credentials invalid."]
+		          "invalid_credential" => ["Credentials invalid."]
 		        ]);
 	      	} else {
 	        	return Redirect::back()
@@ -68,7 +68,7 @@ class AuthController extends \BaseController {
   	protected function getLoginValidator()
   	{
 	    return Validator::make(Input::all(), [
-	      "email" => "required",
+	      "email" => "required|email",
 	      "password" => "required"
 	    ]);
   	}

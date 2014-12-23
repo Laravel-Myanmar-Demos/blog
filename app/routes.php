@@ -19,3 +19,5 @@ Route::get('/', function()
 Route::get('/admin', 'AuthController@create');
 Route::post('/admin', 'AuthController@store');
 Route::get('/admin/logout', 'AuthController@logout');
+
+Route::resource('admin/posts', 'PostsController');

@@ -15,6 +15,9 @@
 	    {{ Form::open(array('/admin', 'role' => 'form', 'class' => 'login-form')) }}
 
 	    	<h1>Please Login</h1>
+	    	@if(!empty($errors->first('invalid_credential')))
+	    		<div class="alert alert-danger">{{ $errors->first('invalid_credential') }}</div>
+	    	@endif
 
 			<div class="form-group">
 				@if(!empty($errors->first("email")))

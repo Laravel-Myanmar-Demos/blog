@@ -26,7 +26,7 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('dell-Inspiron-3847'),
+	'local' => array('setkyar'),
 
 ));
 
