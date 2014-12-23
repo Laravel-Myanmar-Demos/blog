@@ -15,3 +15,7 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('/admin', 'AuthController@create');
+Route::post('/admin', 'AuthController@store');
+Route::get('/admin/logout', 'AuthController@logout');
