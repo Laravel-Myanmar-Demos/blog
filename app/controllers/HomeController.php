@@ -24,7 +24,7 @@ class HomeController extends BaseController {
 
 	public function showBlogDetail($id)
 	{
-		$blog = Post::find($id);
+		$blog = Post::with('comments')->find($id);
 
         return View::make('blogdetail', compact('blog'));
 	}

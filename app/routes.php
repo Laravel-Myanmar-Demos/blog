@@ -14,6 +14,7 @@
 
 Route::get('/', 'HomeController@showWelcome');
 Route::get('/blog/{id}', 'HomeController@showBlogDetail');
+Route::post('/blog/comment/{id}', 'CommentController@comment');
 Route::get('/admin', 'AuthController@create');
 Route::post('/admin', 'AuthController@store');
 
