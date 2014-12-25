@@ -17,7 +17,15 @@ class HomeController extends BaseController {
 
 	public function showWelcome()
 	{
-		return View::make('hello');
+		$blogs = Post::orderBy('id', 'DESC')->paginate(10);
+
+		return View::make('home', compact('blogs'));
 	}
 
+	public function showBlogDetail($id)
+	{
+		$blog = Post::find($id);
+
+        return View::make('blogdetail', compact('blog'));
+	}
 }

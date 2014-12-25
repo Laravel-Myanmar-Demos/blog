@@ -11,13 +11,17 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
 
+Route::get('/', 'HomeController@showWelcome');
+Route::get('/blog/{id}', 'HomeController@showBlogDetail');
 Route::get('/admin', 'AuthController@create');
 Route::post('/admin', 'AuthController@store');
-Route::get('/admin/logout', 'AuthController@logout');
 
-Route::resource('admin/posts', 'PostsController');
+Route::group(array('before' => 'auth'), function()
+{
+    Route::get('/admin/logout', 'AuthController@logout');
+
+	Route::resource('admin/posts', 'PostsController');
+});
+
+

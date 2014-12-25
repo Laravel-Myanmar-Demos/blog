@@ -41,7 +41,9 @@ Route::filter('auth', function()
 		{
 			return Response::make('Unauthorized', 401);
 		}
-		return Redirect::guest('login');
+		return Redirect::guest('admin')->withErrors([
+		          "invalid_credential" => ["Please login first!"]
+		        ]);
 	}
 });
 
